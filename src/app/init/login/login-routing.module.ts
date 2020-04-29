@@ -4,8 +4,11 @@ import { LoginComponent } from './login.component';
 
 export const routes: Routes = [ 
     {
-    path: '',
-    component: LoginComponent
+        path: '',
+        component: LoginComponent,
+        children: [
+            
+        ]
     }
 ]
 
