@@ -11,6 +11,7 @@
         <div class="col-md-12 form-group">
             <input 
             formControlName="username"
+            required
             type="text" 
             class="form-control" 
             placeholder="Nombre de usuario" 
@@ -21,6 +22,7 @@
         <div class="col-md-12 form-group">
             <input 
             formControlName="password"
+            required
             type="password" 
             placeholder="Contraseña" 
             class="form-control" 
@@ -31,8 +33,10 @@
         <div class="col-md-12 form-group">
             <button 
             type="submit" 
+            [disabled]="loginForm.untouched || loginForm.invalid"
             class="btn btn-block btn-login"
-            (click)="loginSubmit()">Submit</button>
+            (click)="loginSubmit()"
+            >Submit</button>
         </div>
     </div>
 </form>  
