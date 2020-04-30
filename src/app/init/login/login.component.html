@@ -6,21 +6,33 @@
     
     <h2>Iniciar Sesión</h2>
     <br>
-    <form action="" method="post">
+    <form [formGroup]="loginForm">
     <div class="row">
         <div class="col-md-12 form-group">
-            <input type="text" class="form-control" placeholder="Nombre de usuario" name="User">
+            <input 
+            formControlName="username"
+            type="text" 
+            class="form-control" 
+            placeholder="Nombre de usuario" 
+            name="User">
         </div>
     </div>
     <div class="row">
         <div class="col-md-12 form-group">
-            <input type="password" placeholder="Contraseña" class="form-control" name="passid">
+            <input 
+            formControlName="password"
+            type="password" 
+            placeholder="Contraseña" 
+            class="form-control" 
+            name="passid">
         </div>
     </div>
     <div class="row">
         <div class="col-md-12 form-group">
-          
-            <button type="submit" class="btn btn-block btn-login">Submit</button>
+            <button 
+            type="submit" 
+            class="btn btn-block btn-login"
+            (click)="loginSubmit()">Submit</button>
         </div>
     </div>
 </form>  

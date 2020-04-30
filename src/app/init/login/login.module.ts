@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login.component';
 import { IndexComponent } from './index/index.component';
 import { LoginRoutingModule } from './login-routing.module';
-
+import { ReactiveFormsModule} from '@angular/forms';
 // enrutamiento
 
 
@@ -14,7 +14,8 @@ import { LoginRoutingModule } from './login-routing.module';
   ],
   imports: [
     CommonModule,
-    LoginRoutingModule
+    LoginRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class LoginModule { }
