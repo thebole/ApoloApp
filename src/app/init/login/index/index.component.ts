@@ -22,7 +22,7 @@ export class IndexComponent implements OnInit {
   }
 
   private loadUsers() {
-    this.userService.getAll().pipe(first()).subscribe(users => { this.users = users;});
+    // this.userService.getAll().pipe(first()).subscribe(users => { this.users = users;});
   }
 
 }
