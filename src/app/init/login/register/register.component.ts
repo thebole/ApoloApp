@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
   }
 
   // convenience getter for easy access to form fields
-  get f() { return this.registerForm.controls; }
+  get fControls() { return this.registerForm.controls; }
 
   buildRegisterForm(): FormGroup {
     return this.registerForm = this.fb.group({
@@ -40,13 +40,13 @@ export class RegisterComponent implements OnInit {
       username: ['', [Validators.required]],
       email: ['', [Validators.email]],
       tel: ['', [Validators.required]],
-      password: ['',[Validators.required]]
+      password: ['',[Validators.required, Validators.minLength(8)]]
     });
   }
 
 
   registerSubmit() {
-    console.log(this.registerForm.value);
+    // console.log(this.registerForm.value);
 
     this.submitted = true;
 
@@ -59,11 +59,11 @@ export class RegisterComponent implements OnInit {
         }
 
         this.loading = true;
-        this.userService.register(this.registerForm.value)
-            .pipe(first())
+        this.authenticationService.register(this.registerForm.value)
             .subscribe(
                 data => {
-                    this.alertService.success('Registration successful', true);
+                    console.log(data);
+                    // this.alertService.success('Registration successful', true);
                     this.router.navigate(['/login']);
                 },
                 error => {

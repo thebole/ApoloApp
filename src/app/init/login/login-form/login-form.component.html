@@ -6,16 +6,16 @@
     
     <h2>Iniciar Sesión</h2>
     <br>
-    <form [formGroup]="loginForm">
+    <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
     <div class="row">
         <div class="col-md-12 form-group">
             <input 
-            formControlName="username"
+            formControlName="email"
             required
-            type="text" 
+            type="email" 
             class="form-control" 
-            placeholder="Nombre de usuario" 
-            name="User">
+            placeholder="Email" 
+            >
         </div>
     </div>
     <div class="row">
@@ -27,7 +27,10 @@
             placeholder="Contraseña" 
             class="form-control" 
             name="passid">
+        <span *ngIf="fControls.password.invalid"
+        class="text-danger">Ingresa al menos 8 caracteres</span>
         </div>
+        
     </div>
     <div class="row">
         <div class="col-md-12 form-group">
@@ -35,7 +38,6 @@
             type="submit" 
             [disabled]="loginForm.untouched || loginForm.invalid"
             class="btn btn-block btn-login"
-            (click)="loginSubmit()"
             >Submit</button>
         </div>
     </div>

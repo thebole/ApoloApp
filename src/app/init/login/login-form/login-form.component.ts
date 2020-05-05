@@ -36,7 +36,7 @@ export class LoginFormComponent implements OnInit {
 
   buildLoginForm(): FormGroup {
     return this.loginForm = this.fb.group({
-      username: ['', [Validators.required]],
+      email: ['', [Validators.required]],
       password: ['', [Validators.required , Validators.minLength(8)]]
     });
 
@@ -47,10 +47,9 @@ export class LoginFormComponent implements OnInit {
 
   loginSubmit() {
     let values = this.loginForm.value;
-    console.log(values);
-
     this.submitted = true;
 
+    console.log(values);
     // reset alerts on submit
     this.alertService.clear();
 
@@ -61,13 +60,15 @@ export class LoginFormComponent implements OnInit {
 
         this.loading = true;
 
-        this.authenticationService.login(this.fControls.username.value , this.fControls.password.value).pipe(first()).subscribe(
+        this.authenticationService.login(values).subscribe(
           data => {
-            this.router.navigate([this.returnUrl]);
+            console.log(data);
+            this.router.navigateByUrl('/index');
           },
-          error => {
-            this.alertService.error(error);
-            this.loading = false;
+          err => {
+            // this.alertService.error(error);
+            // this.loading = false;
+            console.log(err);
           }
         );
   }

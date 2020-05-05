@@ -55,7 +55,10 @@
                 placeholder="Contraseña" 
                 class="form-control" 
                 name="passid">
+                <span   *ngIf="fControls.password.invalid"
+                        class="text-danger">Ingresa al menos 8 caracteres</span>
             </div>
+           
         </div>
         <div class="row">
             <div class="col-md-12 form-group">
