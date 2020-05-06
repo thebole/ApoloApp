@@ -3,19 +3,25 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login.component';
 import { IndexComponent } from './index/index.component';
 import { LoginRoutingModule } from './login-routing.module';
-import { ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
+import { LoginFormComponent } from './login-form/login-form.component';
 // enrutamiento
 
 
 @NgModule({
   declarations: [
     LoginComponent, 
-    IndexComponent
+    IndexComponent,
+     RegisterComponent, 
+     LoginFormComponent
   ],
   imports: [
     CommonModule,
     LoginRoutingModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+    FormsModule
+  ],
+  providers:[]
 })
 export class LoginModule { }

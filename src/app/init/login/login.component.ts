@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
@@ -8,25 +8,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm: FormGroup;
-
-  constructor(private fb: FormBuilder) { }
+  constructor() { }
 
   ngOnInit() {
-    this.buildLoginForm();  
   }
-
-  buildLoginForm(): FormGroup {
-    return this.loginForm = this.fb.group({
-      username: ['', [Validators.required]],
-      password: ['', [Validators.required , Validators.minLength(8)]]
-    });
-
-  }
-
-  loginSubmit() {
-    let values = this.loginForm.value;
-    console.log(values);
-  }
-
 }

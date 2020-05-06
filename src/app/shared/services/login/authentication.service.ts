@@ -11,6 +11,12 @@ import { map } from 'rxjs/operators';
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
   private currentUser: Observable<User>;
+  private apiKey: string = 'AIzaSyA6efzVBDcWSKS75BoinJEv62_Bi0OvLEw';
+  // URL para usuarios en fireBase
+  private url: string = 'https://identitytoolkit.googleapis.com/v1/accounts:';
+  userToken: string;
+  email: string;
+
 
   constructor(private http: HttpClient,
     private router: Router) {
@@ -22,19 +28,90 @@ export class AuthenticationService {
     return this.currentUserSubject.value;
   }
 
-  login(username, password){
-    return this.http.post<any>(`/users/authenticate`, { username, password })
-    .pipe( map(user => {
-        // store user details and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        this.currentUserSubject.next(user);
-        return user;
-    }));
+  login(user: User){
+    const authData = {
+      ...user,
+      returnSecureToken: true
+    }
+    return this.http.post(`${this.url}signInWithPassword?key=${this.apiKey}`,authData
+    ).pipe(
+      map( resp => {
+        this.saveToken(resp['idToken'],resp['email'], resp['displayName'], resp);
+        return resp;
+      })
+    );
+  }
+
+
+  register(user: User){
+    const authData = {
+      ...user,
+      returnSecureToken: true
+    }
+    return this.http.post(
+    `${this.url}signUp?key=${this.apiKey}`,authData
+    ).pipe(
+      map( resp => {
+        this.saveToken(resp['idToken'], resp['email'], resp['displayName'], resp);
+        return resp;
+      })
+    );;
   }
 
     logout() {
       // remove user from local storage and set current user to null
       localStorage.removeItem('currentUser');
+      localStorage.removeItem('token');
+      localStorage.removeItem('email');
+      localStorage.removeItem('expire');
+      localStorage.clear();
       this.currentUserSubject.next(null);
   }
+
+    private saveToken(idToken: string, email: string, name: string, user?) {
+      this.userToken = idToken;
+      this.email = email;
+
+      localStorage.setItem('token', idToken);
+      localStorage.setItem('email', email);
+      localStorage.setItem('name', name);
+      
+      let today = new Date();
+      today.setSeconds( 3600 );
+
+      localStorage.setItem('expire' , today.getTime().toString());
+
+      // store user details and jwt token in local storage to keep user logged in between page refreshes
+      localStorage.setItem('currentUser', JSON.stringify(user));
+      this.currentUserSubject.next(user);
+    }
+
+
+    // read the token
+    readToken(){
+      if (localStorage.getItem('token')) {
+        this.userToken = localStorage.getItem('token');
+      } else {
+        this.userToken = '';
+      }
+  
+      return this.userToken;
+    }
+
+    // Authenticated with Fire Base
+    isAuthenticated() : boolean {
+      if (this.userToken.length < 3) {
+        return false;
+      } 
+       const exp = Number(localStorage.getItem('expire'));
+       const todayExp = new Date();
+  
+       todayExp.setTime(exp);
+  
+      if ( todayExp > new Date()) {
+        return true;
+      } else {
+        return false;
+      }
+    }
 }

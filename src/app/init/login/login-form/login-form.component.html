@@ -1,0 +1,45 @@
+<div class="simple-login-container">
+    <div class="logo-container">
+        <img src="assets/img/Recurso 1.png" class="logo" width="100px" alt="">
+
+    </div>
+    
+    <h2>Iniciar Sesión</h2>
+    <br>
+    <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+    <div class="row">
+        <div class="col-md-12 form-group">
+            <input 
+            formControlName="email"
+            required
+            type="email" 
+            class="form-control" 
+            placeholder="Email" 
+            >
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 form-group">
+            <input 
+            formControlName="password"
+            required
+            type="password" 
+            placeholder="Contraseña" 
+            class="form-control" 
+            name="passid">
+        <span *ngIf="fControls.password.invalid"
+        class="text-danger">Ingresa al menos 8 caracteres</span>
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-md-12 form-group">
+            <button 
+            type="submit" 
+            [disabled]="loginForm.untouched || loginForm.invalid"
+            class="btn btn-block btn-login"
+            >Submit</button>
+        </div>
+    </div>
+</form>  
+</div>

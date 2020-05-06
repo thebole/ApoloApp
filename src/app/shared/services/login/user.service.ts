@@ -10,15 +10,15 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<User[]>{
-    return this.http.get<User[]>(`/users`);
-  }
+  // getAll(): Observable<User[]>{
+  //   return this.http.get<User[]>(`/users`);
+  // }
 
-  register(user: User): Observable<User>{
-    return this.http.post<User>(`/users/register`, user);
-  }
+  // register(user: User): Observable<User>{
+  //   return this.http.post<User>(`/users/register`, user);
+  // }
 
-  delete(id: number): Observable<User> {
-    return this.http.delete<User>(`/users/${id}`);
-  }
+  // delete(id: number): Observable<User> {
+  //   return this.http.delete<User>(`/users/${id}`);
+  // }
 }
