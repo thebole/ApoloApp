@@ -36,7 +36,7 @@ export class AuthenticationService {
     return this.http.post(`${this.url}signInWithPassword?key=${this.apiKey}`,authData
     ).pipe(
       map( resp => {
-        this.saveToken(resp['idToken'],resp['email'], resp);
+        this.saveToken(resp['idToken'],resp['email'], resp['displayName'], resp);
         return resp;
       })
     );
@@ -52,7 +52,7 @@ export class AuthenticationService {
     `${this.url}signUp?key=${this.apiKey}`,authData
     ).pipe(
       map( resp => {
-        this.saveToken(resp['idToken'], resp['email'], resp);
+        this.saveToken(resp['idToken'], resp['email'], resp['displayName'], resp);
         return resp;
       })
     );;
@@ -68,12 +68,13 @@ export class AuthenticationService {
       this.currentUserSubject.next(null);
   }
 
-    private saveToken(idToken: string, email: string, user?) {
+    private saveToken(idToken: string, email: string, name: string, user?) {
       this.userToken = idToken;
       this.email = email;
 
       localStorage.setItem('token', idToken);
       localStorage.setItem('email', email);
+      localStorage.setItem('name', name);
       
       let today = new Date();
       today.setSeconds( 3600 );
