@@ -49,7 +49,7 @@ export class LoginFormComponent implements OnInit {
     let values = this.loginForm.value;
     this.submitted = true;
 
-    console.log(values);
+    // console.log(values);
     // reset alerts on submit
     this.alertService.clear();
 

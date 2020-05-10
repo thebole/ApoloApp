@@ -68,6 +68,9 @@
                 [disabled]="registerForm.invalid || registerForm.untouched" 
                 (click)="registerSubmit()">Submit</button>
             </div>
+            <div class="col-md-12 form-group">
+                <a [routerLink]="['/login']">¿Ya tienes una cuenta?, Inícia sesión aquí</a>
+            </div>
         </div>
     </form>  
 </div>
