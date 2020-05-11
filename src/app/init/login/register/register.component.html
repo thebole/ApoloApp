@@ -1,76 +1,76 @@
 
-    <div class="simple-login-container">
-        <div class="logo-container">
-            <img src="assets/img/Recurso 1.png" class="logo" width="100px" alt="">
+        <div class="simple-login-container">
+            <div class="logo-container">
+                <img src="assets/img/Recurso 1.png" class="logo" width="100px" alt="">
 
-        </div>
-        
-        <h2>Registrar Usuario</h2>
-        <br>
-        <form [formGroup]="registerForm">
-        <div class="row">
-            <div class="col-md-12 form-group">
-                <input type="text"
-                formControlName="displayName" 
-                class="form-control" 
-                placeholder="Nombre Completo" 
-                name="name">
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 form-group">
-                <input type="text" 
-                formControlName="username"
-                class="form-control" 
-                placeholder="Nombre de usuario" 
-                name="name">
+            
+            <h2>Registrar Usuario</h2>
+            <br>
+            <form [formGroup]="registerForm">
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <input type="text"
+                    formControlName="displayName" 
+                    class="form-control" 
+                    placeholder="Nombre Completo" 
+                    name="name">
+                </div>
             </div>
-        </div>
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <input type="text" 
+                    formControlName="username"
+                    class="form-control" 
+                    placeholder="Nombre de usuario" 
+                    name="name">
+                </div>
+            </div>
 
-        <div class="row">
-            <div class="col-md-12 form-group">
-                <input type="email" 
-                formControlName="email"
-                class="form-control" 
-                placeholder="Correo electrónico" 
-                name="name">
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <input type="email" 
+                    formControlName="email"
+                    class="form-control" 
+                    placeholder="Correo electrónico" 
+                    name="name">
+                </div>
             </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-12 form-group">
-                <input 
-                type="tel" 
-                formControlName="tel"
-                class="form-control" 
-                placeholder="Número de teléfono" 
-                name="name">
+            
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <input 
+                    type="tel" 
+                    formControlName="tel"
+                    class="form-control" 
+                    placeholder="Número de teléfono" 
+                    name="name">
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 form-group">
-                <input 
-                type="password"
-                formControlName="password" 
-                placeholder="Contraseña" 
-                class="form-control" 
-                name="passid">
-                <span   *ngIf="fControls.password.invalid"
-                        class="text-danger">Ingresa al menos 8 caracteres</span>
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <input 
+                    type="password"
+                    formControlName="password" 
+                    placeholder="Contraseña" 
+                    class="form-control" 
+                    name="passid">
+                    <span   *ngIf="fControls.password.invalid"
+                            class="text-danger">Ingresa al menos 8 caracteres</span>
+                </div>
+            
             </div>
-           
-        </div>
-        <div class="row">
-            <div class="col-md-12 form-group">
-              
-                <button type="submit" 
-                class="btn btn-block btn-login"
-                [disabled]="registerForm.invalid || registerForm.untouched" 
-                (click)="registerSubmit()">Submit</button>
+            <div class="row">
+                <div class="col-md-12 form-group">
+                
+                    <button type="submit" 
+                    class="btn btn-block btn-login"
+                    [disabled]="registerForm.invalid || registerForm.untouched" 
+                    (click)="registerSubmit()">Submit</button>
+                </div>
+                <div class="col-md-12 form-group">
+                    <a [routerLink]="['/login']">¿Ya tienes una cuenta?, Inícia sesión aquí</a>
+                </div>
             </div>
-            <div class="col-md-12 form-group">
-                <a [routerLink]="['/login']">¿Ya tienes una cuenta?, Inícia sesión aquí</a>
-            </div>
-        </div>
-    </form>  
-</div>
+        </form>  
+    </div>
