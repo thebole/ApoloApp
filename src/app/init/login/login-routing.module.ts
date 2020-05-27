@@ -26,8 +26,7 @@ export const routes: Routes = [
             },
             {
               path: 'index',
-              component: IndexComponent,
-              canActivate: [AuthGuard]
+              loadChildren: () => import('src/app/init/login/index/index.module').then(m => m.IndexModule)
             }
         ]
     }

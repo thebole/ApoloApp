@@ -17,13 +17,12 @@ import { AlertService } from './shared/services/alert.service';
 import { JwtInterceptor } from './shared/interceptors/jwt.interceptor';
 import { ErrorInterceptor } from './shared/interceptors/error.interceptor';
 import { fakeBackendProvider } from './shared/fakeBE/fake-backend';
-import { NavbarComponent } from './core/navbar/navbar.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    AlertsComponent,
-    NavbarComponent
+    AlertsComponent
   ],
   imports: [
     BrowserModule,

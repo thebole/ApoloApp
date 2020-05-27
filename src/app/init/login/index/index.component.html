@@ -1,7 +1,19 @@
-<h1 class="display-5">Bienvenido {{ user }}</h1>
-<button 
-class="btn btn-outline-danger"
-(click)="logout()"
->
-Salir
-</button>
+<div class="container">
+    <app-navbar [userData]="usersData"></app-navbar>  
+
+    <div class="row">
+        <div class="col-md-6 m-auto">
+            <h1 class="display-5">Bienvenido {{ user }}</h1>
+            <button 
+            class="btn btn-outline-danger"
+            (click)="logout()"
+            >
+            Salir
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+

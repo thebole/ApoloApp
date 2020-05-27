@@ -62,7 +62,7 @@ export class LoginFormComponent implements OnInit {
 
         this.authenticationService.login(values).subscribe(
           data => {
-            console.log(data);
+            // console.log(data);
             this.router.navigateByUrl('/index');
           },
           err => {

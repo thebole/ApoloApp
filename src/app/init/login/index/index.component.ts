@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class IndexComponent implements OnInit {
   currentUser: User;
-  users = [];
+  usersData:any[] = [];
   user: string;
   constructor(
     private authenticationService: AuthenticationService,
@@ -20,18 +20,19 @@ export class IndexComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.loadUsers();
+    this.usersData = this.loadUsers();
     this.user = localStorage.getItem('name');
   }
 
   private loadUsers() {
     // this.userService.getAll().pipe(first()).subscribe(users => { this.users = users;});
-    console.log('soy el index!!!!!');
+    let userData = JSON.parse(localStorage.getItem('currentUser')); 
+    return userData;
   }
 
   logout () {
     this.authenticationService.logout();
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl('/');
   }
   
 

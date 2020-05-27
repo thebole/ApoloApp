@@ -29,6 +29,13 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/assets/styles/css/font-face.css",
+              "src/assets/styles/css/theme.css",
+              "src/assets/styles/vendor/font-awesome-4.7/css/font-awesome.min.css",
+              "src/assets/styles/vendor/font-awesome-5/css/fontawesome-all.min.css",
+              "src/assets/styles/vendor/mdi-font/css/material-design-iconic-font.min.css",
+              "src/assets/styles/vendor/wow/animate.css",
+              "src/assets/styles/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css",
               "src/styles.scss"
             ],
             "scripts": [

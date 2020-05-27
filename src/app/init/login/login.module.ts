@@ -6,13 +6,13 @@ import { LoginRoutingModule } from './login-routing.module';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { IndexModule } from './index/index.module';
 // enrutamiento
 
 
 @NgModule({
   declarations: [
     LoginComponent, 
-    IndexComponent,
      RegisterComponent, 
      LoginFormComponent
   ],
@@ -20,7 +20,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
     CommonModule,
     LoginRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    IndexModule
   ],
   providers:[]
 })
