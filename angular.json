@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/assets/styles/css/font-face.css",
               "src/assets/styles/css/theme.css",
@@ -36,12 +37,21 @@
               "src/assets/styles/vendor/mdi-font/css/material-design-iconic-font.min.css",
               "src/assets/styles/vendor/wow/animate.css",
               "src/assets/styles/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css",
+              "src/assets/styles/vendor/animsition/animsition.min.css",
+              "src/assets/styles/vendor/css-hamburgers/hamburgers.min.css",
+              "src/assets/styles/vendor/fullcalendar-3.10.0/fullcalendar.min.css",
+              "src/assets/styles/vendor/fullcalendar-3.10.0/fullcalendar.print.min.css",
+              "src/assets/styles/vendor/perfect-scrollbar/perfect-scrollbar.css",
+              "src/assets/styles/vendor/slick/slick.scss",
+              "src/assets/styles/vendor/select2/select2.min.css",
+              "src/assets/styles/vendor/vector-map/jqvmap.min.css",
               "src/styles.scss"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/popper.js/dist/umd/popper.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/styles/vendor/chartjs/Chart.bundle.min.js",
               "src/assets/styles/vendor/slick/slick.min.js",
               "src/assets/styles/vendor/wow/wow.min.js",
               "src/assets/styles/vendor/animsition/animsition.min.js",
@@ -50,13 +60,13 @@
               "src/assets/styles/vendor/counter-up/jquery.counterup.min.js",
               "src/assets/styles/vendor/circle-progress/circle-progress.min.js",
               "src/assets/styles/vendor/perfect-scrollbar/perfect-scrollbar.js",
-              "src/assets/styles/vendor/chartjs/Chart.bundle.min.js",
               "src/assets/styles/vendor/select2/select2.min.js",
               "src/assets/styles/vendor/vector-map/jquery.vmap.js",
               "src/assets/styles/vendor/vector-map/jquery.vmap.min.js",
               "src/assets/styles/vendor/vector-map/jquery.vmap.sampledata.js",
-              "src/assets/styles/vendor/vector-map/jquery.vmap.world.js"
-
+              "src/assets/styles/vendor/vector-map/jquery.vmap.world.js",
+              "src/assets/styles/vendor/perfect-scrollbar/perfect-scrollbar.min.js",
+              "src/assets/styles/js/main.js"
             ]
           },
           "configurations": {
@@ -119,6 +129,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
